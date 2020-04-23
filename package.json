@@ -1,18 +1,18 @@
 {
-  "name": "ocds-keywork-analyzer-api",
+  "name": "ocds-keyword-analyzer-api",
   "version": "1.0.0",
   "description": "An API interface that allows a user to access open contracting data with keyword analysis.",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/_mocha ./test/**/*.test.js",
-    "start": "nodemon src/server/index.js",
+    "start": "nodemon src/server/app.js",
     "lint": "eslint ./src --fix",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|md|vue)\"",
     "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DBuckley0126/OCDS-keywork-analyzer-api.git"
+    "url": "git+https://github.com/DBuckley0126/OCDS-keyword-analyzer-api.git"
   },
   "keywords": [
     "API",
@@ -23,9 +23,9 @@
   "author": "Danny Buckley",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DBuckley0126/OCDS-keywork-analyzer-api/issues"
+    "url": "https://github.com/DBuckley0126/OCDS-keyword-analyzer-api/issues"
   },
-  "homepage": "https://github.com/DBuckley0126/OCDS-keywork-analyzer-api#readme",
+  "homepage": "https://github.com/DBuckley0126/OCDS-keyword-analyzer-api#readme",
   "lint-staged": {
     "*.js": [
       "prettier --write",
