@@ -1,0 +1,4 @@
+{
+  "whitelistWords": ["sustainably", "microsoft", "refurb", "specilist", "detrunking", "telecare", "esourcing", "eform"],
+  "blacklistWords": ["work", "required", "time", "operation", "united", "lot", "st", "uk", "register", "providing", "zone", "quarter", "registered", "void", "side", "wrap", "understand", "sec"]
+}
