@@ -2,7 +2,8 @@ module.exports = {
   index: async ctx => {
     ctx.body = {
       status: "success",
-      message: "hello, world!"
+      message: "Welcome to the OCDS keyword analyzer!"
     };
-  }
+  },
+
 };
