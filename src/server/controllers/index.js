@@ -37,7 +37,7 @@ module.exports = {
       if (response.success) {
         ctx.body = {
           service: ctx.params.service,
-          search: false,
+          search: true,
           message: response.message,
           data: {
             contracts: response.output.contracts,
