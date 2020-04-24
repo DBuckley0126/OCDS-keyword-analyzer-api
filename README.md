@@ -91,7 +91,7 @@ An API for keyword analysis of open contracting data from various sources.
    Avaliable sources:
     contractfinder: www.contractsfinder.service.gov.uk
 
-    **Optional:**
+    **Optional:** <br />
     `publishedFrom=[ISO 8601]` Set the Publised From property. <br />
     `publishedTo=[ISO 8601]` 	Set the Publised To property. <br />
     `stages=[planning,tender,award,implementation]` Set the Stages property. <br />
