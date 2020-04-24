@@ -67,7 +67,7 @@ An API for keyword analysis of open contracting data from various sources.
 * **Sample Call:**
 
   https://ocds-keyword-analyzer.herokuapp.com/contractfinder/keywords
-  
+
 
 **GET OCDS release packages from source with search**
 ----
@@ -92,13 +92,13 @@ An API for keyword analysis of open contracting data from various sources.
     contractfinder: www.contractsfinder.service.gov.uk
 
     **Optional:**
-    `publishedFrom=[ISO 8601]` Set the Publised From property
-    `publishedTo=[ISO 8601]` 	Set the Publised To property
-    `stages=[planning,tender,award,implementation]` Set the Stages property
-    `orderBy=[publishedDate]` Set the Order By property
-    `order=[ASC,DESC]` 	Set the Order property
-    `size=[integer]` 	Sets the maximum size of the results 0-100.
-    `page=[integer]` 	Sets the page of the result set to retrieve.
+    `publishedFrom=[ISO 8601]` Set the Publised From property. <br />
+    `publishedTo=[ISO 8601]` 	Set the Publised To property. <br />
+    `stages=[planning,tender,award,implementation]` Set the Stages property. <br />
+    `orderBy=[publishedDate]` Set the Order By property <br />
+    `order=[ASC,DESC]` 	Set the Order property. <br />
+    `size=[integer]` 	Sets the maximum size of the results 0-100. <br />
+    `page=[integer]` 	Sets the page of the result set to retrieve. <br />
 
 * **Success Response:**
 
