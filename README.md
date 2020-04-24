@@ -1,5 +1,5 @@
 # OCDS-keyword-analyzer-api
-An API for keyword analysis of open contracting data from various sources.
+An API for keyword analysis of open contracting data from various sources using the Latent Dirichlet allocation(LDS) algorithm.
 
 **GET OCDS release packages from source**
 ----
