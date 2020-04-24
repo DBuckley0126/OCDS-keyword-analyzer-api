@@ -74,20 +74,10 @@ const responseManager = {
       err.code = "RESPONSE_ERROR";
       errorManager.handleError(err);
 
-      const errorMessage = () => {
-        if (err.response) {
-          return `Response from service: ${err.response.data.message}`;
-        }
-        if (err.request) {
-          return `No response received from service: ${service}`;
-        }
-        return err.message;
-      };
-
       return {
         success: false,
         output: [],
-        message: errorMessage()
+        message: errorManager.humanErrorMessageCompiler(err, service)
       };
     }
   }

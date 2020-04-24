@@ -28,7 +28,16 @@ const errorManager = {
         terminalDisplay("Unknown Error", true);
     }
   },
-  terminalDisplay
+  terminalDisplay,
+  humanErrorMessageCompiler: (err, service = "Unknown") => {
+    if (err.response) {
+      return `Response from service: ${err.response.data.message}`;
+    }
+    if (err.request) {
+      return `No response received from service: ${service}`;
+    }
+    return err.message;
+  }
 };
 
 module.exports = errorManager;
