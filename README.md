@@ -24,32 +24,30 @@ An API for keyword analysis of open contracting data from various sources.
     contractfinder: www.contractsfinder.service.gov.uk
 
 * **Success Response:**
-  
-  <_What should the status code be on success and is there any returned data? This is useful when people need to to know what their callbacks should expect!_>
 
   * **Code:** 200 <br />
     **Content:** 
-    { 
-      service: SELECTED SERVICE,
-      search: [TRUE / FALSE],
-      message: "Successfully retreived source",
-      data: {
-        contracts: [
-          {
-            ocid: UNIQUE IDENTIFIER THAT IDENTIFIES THE UNQIUE OPEN CONTRACTING PROCESS,
-            uri: URI OF OCD,
-            title: TITLE OF OCD,
-            description: DESCRIPTION OF OCD,
-            primaryKeywords: [
-              ARRAY OF KEYWORDS FROM TITLE AND CLASSIFICATION
-            ],
-            secondaryKeywords: [
-              ARRAY OF KEYWORDS FROM DESCRIPTION
-            ]
-          }
-        ]
-      }
-    }
+    { <br />
+      service: SELECTED SERVICE, <br />
+      search: [TRUE / FALSE], <br />
+      message: "Successfully retreived source", <br />
+      data: { <br />
+        contracts: [ <br />
+          { <br />
+            ocid: UNIQUE IDENTIFIER THAT IDENTIFIES THE UNQIUE OPEN CONTRACTING PROCESS, <br />
+            uri: URI OF OCD, <br />
+            title: TITLE OF OCD, <br />
+            description: DESCRIPTION OF OCD, <br />
+            primaryKeywords: [ <br />
+              ARRAY OF KEYWORDS FROM TITLE AND CLASSIFICATION <br />
+            ], <br />
+            secondaryKeywords: [ <br />
+              ARRAY OF KEYWORDS FROM DESCRIPTION <br />
+            ] <br />
+          } <br />
+        ] <br />
+      } <br />
+    } <br />
  
 * **Error Response:**
 
