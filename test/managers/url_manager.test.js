@@ -7,13 +7,15 @@ chai.use(chaiAsPromised);
 const { expect } = chai;
 
 const attemptFetch = async test => {
-  const res = await urlManager.fetch("https://jsonplaceholder.typicode.com/todos");
+  const res = await urlManager.fetch(
+    "https://jsonplaceholder.typicode.com/todos"
+  );
 
-  switch(test){
+  switch (test) {
     case "status":
-      return res.status
+      return res.status;
     case "method":
-      return res.config.method
+      return res.config.method;
     default:
       return res;
   }

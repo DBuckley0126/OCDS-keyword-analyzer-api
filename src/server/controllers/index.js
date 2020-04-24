@@ -27,7 +27,10 @@ module.exports = {
   },
   getKeywordsWithSearch: async ctx => {
     if (sources.find(source => source.name === ctx.params.service)) {
-      const response = await responseManager.keywords(ctx.params.service, ctx.querystring);
+      const response = await responseManager.keywords(
+        ctx.params.service,
+        ctx.querystring
+      );
       if (response.success) {
         ctx.body = {
           service: ctx.params.service,
@@ -41,6 +44,5 @@ module.exports = {
     } else {
       ctx.throw(404, `Unable to find specified service: ${ctx.params.service}`);
     }
-  },
-
+  }
 };

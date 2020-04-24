@@ -2,7 +2,7 @@
   {
     "name": "contractfinder",
     "urls": {
-      "normalSearch": "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search"
+      "normalSearch": "https://www.contractsfinder.servic.gov.uk/Published/Notices/OCDS/Search"
     }
   }
 ]
