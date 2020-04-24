@@ -4,12 +4,10 @@ const KoaBody = require("koa-body");
 const Json = require("koa-json");
 const cors = require("@koa/cors");
 
-
 const indexRoutes = require("./routes/index");
 
 const app = new Koa();
 const PORT = process.env.PORT || 5000;
-
 
 // JSON Prettier middleware
 app.use(Json());
