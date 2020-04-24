@@ -4,6 +4,6 @@ module.exports = {
       status: "success",
       message: "Welcome to the OCDS keyword analyzer!"
     };
-  },
+  }
 
 };
