@@ -14,7 +14,7 @@ describe("managers : ldaManager", () => {
       ).to.be.a("array");
       expect(
         ldaManager.getTopicWords(["bye world, hello world"]).length,
-        "rrray should have 2 elements"
+        "arrray should have 2 elements"
       ).to.equal(2);
       expect(
         ldaManager.getTopicWords(["bye world, hello world"]).includes("bye"),

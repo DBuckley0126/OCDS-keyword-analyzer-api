@@ -34,7 +34,9 @@
   },
   "dependencies": {
     "@koa/cors": "2.2.3",
+    "axios": "0.19.2",
     "bcryptjs": "^2.4.3",
+    "chai-as-promised": "7.1.1",
     "check-word": "1.1.0",
     "file-system": "2.2.2",
     "fs": "0.0.1-security",
