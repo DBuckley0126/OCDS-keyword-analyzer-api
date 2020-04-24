@@ -40,6 +40,7 @@
     "check-word": "1.1.0",
     "file-system": "2.2.2",
     "fs": "0.0.1-security",
+    "http-assert": "1.4.1",
     "husky": "4.2.1",
     "koa": "2.11.0",
     "koa-body": "4.1.1",

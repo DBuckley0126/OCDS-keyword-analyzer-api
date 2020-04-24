@@ -1,0 +1,8 @@
+[
+  {
+    "name": "contractfinder",
+    "urls": {
+      "normalSearch": "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search"
+    }
+  }
+]

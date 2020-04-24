@@ -1,15 +1,20 @@
 /* eslint-disable no-restricted-syntax */
 const urlManager = require("./urlManager");
 const ldaManager = require("./ldaManager");
+const sources = require("../../lib/sourceUrls.json");
 
 const responseManager = {
-  keywords: async () => {
-    const json = await urlManager.fetch(
-      "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search"
-    );
+  keywords: async (service, search = false) => {
+    const source = sources.find(source => source.name === service);
+    if (search) {
+      // DO SOMETHING
+    } else {
+      var json = await urlManager.fetch(source.urls.normalSearch);
+    }
+
     const outputArray = [];
     for (contract of json.data.results) {
-      output.push({
+      outputArray.push({
         ocid: contract.releases[0].ocid || "Unavailable",
 
         uri: contract.uri || "Unavailable",
@@ -45,7 +50,11 @@ const responseManager = {
           .filter((a, b, array) => array.indexOf(a) === b)
       });
     }
-    return outputArray;
+    return {
+      success: true,
+      output: outputArray,
+      message: "Successfully retreived source"
+    };
   }
 };
 
