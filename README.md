@@ -67,8 +67,9 @@ An API for keyword analysis of open contracting data from various sources.
 * **Sample Call:**
 
   https://ocds-keyword-analyzer.herokuapp.com/contractfinder/keywords
+  
 
-  **GET OCDS release packages from source with search**
+**GET OCDS release packages from source with search**
 ----
   Searches for published notice OCDS releases package with search criteria and keyword analysis.
 
