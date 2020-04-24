@@ -2,8 +2,8 @@
 const lda = require("lda");
 const CheckWord = require("check-word");
 const pluralize = require("pluralize");
-const dictionary = require("../lib/dictionary");
-// const errorManager = require("./errorManager");
+const dictionary = require("../../lib/dictionary.json");
+const errorManager = require("./errorManager");
 
 const words = CheckWord("en");
 
