@@ -26,6 +26,7 @@ const ldaManager = {
       return string.replace(/\b&#.{0,3};\b/g, "");
     });
     let outputArray = [];
+    const rejectedKeywords = [];
     try {
       let attempts = 0;
       while (
@@ -39,8 +40,8 @@ const ldaManager = {
           keywordsPerTopic + attempts
         );
 
-        for (topic of results) {
-          for (keyword of topic) {
+        for (const topic of results) {
+          for (const keyword of topic) {
             const singularVersion = pluralize.singular(keyword.term);
             if (
               wordChecker(singularVersion) &&
@@ -48,7 +49,7 @@ const ldaManager = {
             ) {
               outputArray.push(pluralize.singular(keyword.term));
             } else if (outputArray.length < amountOfTopics * keywordsPerTopic) {
-              console.log(`Rejected Keyword: ${singularVersion}`);
+              rejectedKeywords.push(singularVersion);
             }
           }
         }
@@ -58,7 +59,7 @@ const ldaManager = {
       err.code = "LDA_FAIL";
       errorManager.handleError(err);
     } finally {
-      return outputArray;
+      return { output: outputArray, rejected: rejectedKeywords };
     }
   }
 };

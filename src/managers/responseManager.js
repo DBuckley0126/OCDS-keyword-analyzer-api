@@ -1,8 +1,31 @@
+/* eslint-disable no-loop-func */
 /* eslint-disable no-restricted-syntax */
 const urlManager = require("./urlManager");
 const ldaManager = require("./ldaManager");
 const errorManager = require("./errorManager");
 const sources = require("../../lib/sourceUrls.json");
+
+const rejectedKeywords = [];
+
+const keywordComplier = topicArray => {
+  const outputArray = [];
+  for (const topicObject of topicArray) {
+    let response = null;
+    if ("arguments" in topicObject) {
+      response = ldaManager.getTopicWords(
+        [topicObject.topic],
+        ...topicObject.arguments
+      );
+      rejectedKeywords.push(response.rejected);
+      outputArray.push(response.output);
+    } else {
+      response = ldaManager.getTopicWords([topicObject.topic]);
+      rejectedKeywords.push(response.rejected);
+      outputArray.push(response.output);
+    }
+  }
+  return outputArray.flat().filter((a, b, array) => array.indexOf(a) === b);
+};
 
 const responseManager = {
   keywords: async (service, search = false) => {
@@ -18,7 +41,6 @@ const responseManager = {
       }
 
       if (response.status !== 200) {
-        debugger;
         if (response.data.message) {
           throw new Error(response.data.message);
         } else {
@@ -28,7 +50,7 @@ const responseManager = {
 
       const outputArray = [];
 
-      for (contract of response.data.results) {
+      for (const contract of response.data.results) {
         outputArray.push({
           ocid: contract.releases[0].ocid || "Unavailable",
 
@@ -44,30 +66,32 @@ const responseManager = {
               ""
             ) || "Unavailable",
 
-          primaryKeywords: [
-            ldaManager.getTopicWords([
-              contract.releases[0].tender.items[0].classification.description ||
-                ""
-            ]),
-            ldaManager.getTopicWords([contract.releases[0].tender.title || ""])
-          ]
-            .flat()
-            .filter((a, b, array) => array.indexOf(a) === b),
+          primaryKeywords: keywordComplier([
+            {
+              topic:
+                contract.releases[0].tender.items[0].classification
+                  .description || ""
+            },
+            { topic: contract.releases[0].tender.title || "" }
+          ]),
 
-          secondaryKeywords: [
-            ldaManager.getTopicWords(
-              [contract.releases[0].tender.description || ""],
-              1,
-              3
-            )
-          ]
-            .flat()
-            .filter((a, b, array) => array.indexOf(a) === b)
+          secondaryKeywords: keywordComplier([
+            {
+              topic: contract.releases[0].tender.description || "",
+              arguments: [1, 3]
+            }
+          ])
         });
       }
+
       return {
         success: true,
-        output: outputArray,
+        output: {
+          contracts: outputArray,
+          rejectedKeywords: rejectedKeywords
+            .flat()
+            .filter((a, b, array) => array.indexOf(a) === b)
+        },
         message: "Successfully retreived source"
       };
     } catch (err) {

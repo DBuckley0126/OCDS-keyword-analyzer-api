@@ -16,7 +16,10 @@ module.exports = {
           service: ctx.params.service,
           search: false,
           message: response.message,
-          data: response.output
+          data: {
+            contracts: response.output.contracts,
+            rejectedKeywords: response.output.rejectedKeywords
+          }
         };
       } else {
         ctx.throw(404, response.message);
@@ -36,7 +39,10 @@ module.exports = {
           service: ctx.params.service,
           search: false,
           message: response.message,
-          data: response.output
+          data: {
+            contracts: response.output.contracts,
+            rejectedKeywords: response.output.rejectedKeywords
+          }
         };
       } else {
         ctx.throw(404, response.message);
