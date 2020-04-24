@@ -8,7 +8,7 @@ module.exports = {
       message: "Welcome to the OCDS keyword analyzer!"
     };
   },
-  getKeywordsWithoutSearch: async ctx => {
+  getKeywords: async ctx => {
     if (sources.find(source => source.name === ctx.params.service)) {
       const response = await responseManager.keywords(ctx.params.service);
       if (response.success) {
@@ -24,5 +24,23 @@ module.exports = {
     } else {
       ctx.throw(404, `Unable to find specified service: ${ctx.params.service}`);
     }
-  }
+  },
+  getKeywordsWithSearch: async ctx => {
+    if (sources.find(source => source.name === ctx.params.service)) {
+      const response = await responseManager.keywords(ctx.params.service, ctx.querystring);
+      if (response.success) {
+        ctx.body = {
+          service: ctx.params.service,
+          search: false,
+          message: response.message,
+          data: response.output
+        };
+      } else {
+        ctx.throw(404, response.message);
+      }
+    } else {
+      ctx.throw(404, `Unable to find specified service: ${ctx.params.service}`);
+    }
+  },
+
 };

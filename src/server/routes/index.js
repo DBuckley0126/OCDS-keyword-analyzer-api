@@ -6,6 +6,8 @@ const router = new Router();
 
 router.get("/", indexControllers.index);
 
-router.get("/:service/keywords", indexControllers.getKeywordsWithoutSearch);
+router.get("/:service/keywords", indexControllers.getKeywords);
+
+router.get("/:service/search/keywords", indexControllers.getKeywordsWithSearch);
 
 module.exports = router;

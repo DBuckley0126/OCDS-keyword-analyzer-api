@@ -1,30 +1,34 @@
-const terminalDisplay = (message, err, end) => {
-  console.log("//////////ERROR////////////")
-  console.log(message)
-  console.log(err)
+const terminalDisplay = (message, end) => {
+  console.log("//////////ERROR////////////");
+  console.log(message);
 
-  if(end){
-    process.exit()
+  if (end) {
+    process.exit();
   }
-}
+};
 
 const errorManager = {
-  handleError: (err) => {
-    switch(true){
-      case err.code == "ENOTFOUND":
-        terminalDisplay("Failed to fetch URL", err, true)
+  handleError: err => {
+    switch (true) {
+      case err.code === "ENOTFOUND":
+        terminalDisplay("Failed to fetch URL", err, true);
         break;
-      case err.code == "LDA_FAIL":
-        terminalDisplay(err.message, err, false)
+      case err.code === "LDA_FAIL":
+        terminalDisplay(err.message, false);
+        break;
+      case err.code === "REQUEST_FAIL":
+        terminalDisplay(err.message, false);
+        break;
+      case err.code === "RESPONSE_ERROR":
+        break;
       case !!err.message:
-        terminalDisplay(err.message, err, true)
+        terminalDisplay(err.message, true);
         break;
       default:
-        terminalDisplay("Unknown Error", err, true)
+        terminalDisplay("Unknown Error", true);
     }
   },
-  terminalDisplay: terminalDisplay
+  terminalDisplay
+};
 
-}
-
-module.exports = errorManager
+module.exports = errorManager;
