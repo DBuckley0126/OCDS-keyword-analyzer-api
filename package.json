@@ -59,7 +59,7 @@
     "koa-static": "5.0.0",
     "lda": "0.2.0",
     "lint-staged": "10.0.7",
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "passport-local": "^1.0.0",
     "pg": "^7.1.2",
     "pluralize": "8.0.0",
